@@ -1,0 +1,41 @@
+<template name="bugEdit">
+  <form class="edit-bug">
+    <div class="form-horizontal align-center">
+      <div class="form-group">
+        <label class="col-md-3 control-label">Title</label>
+        <div class="col-md-7">
+          <input class="form-control" type="text" name="title" value="{{title}}"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">Story</label>
+        <div class="col-md-7">
+          <input class="form-control" type="text" name="story_number" value="{{story_number}}"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">Description</label>
+        <div class="col-md-7">
+          <input class="form-control" type="text" name="description" value="{{description}}"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">Tags</label>
+        <div class="col-md-7">
+          <input class="form-control" id="tags" name="tags" value="{{#each tags}}{{this}}, {{/each}}"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">Solution</label>
+        <div class="col-md-7">
+          <textarea class="form-control" name="solution">{{solution}}
+          </textarea>
+        </div>
+      </div>
+      <div class="col-md-offset-5">
+        <button class="btn btn-default" id="cancel" type="button">Cancel</button>
+        <button class="btn btn-primary" id="save" type="button">Save</button>
+      </div>
+    </div>
+  </form>
+</template>

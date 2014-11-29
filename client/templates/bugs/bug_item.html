@@ -1,0 +1,13 @@
+<template name="bugItem">
+  <a href="/bugs/{{_id.toHexString}}"><h3>{{title}}</h3></a>
+  <div>
+    <label>Description</label>
+    {{description}}
+  </div>
+  <div>
+    <label>Tags</label>
+    {{#each tags}}
+    <button class="tag" onclick="window.location = '/search/{{this}}'">{{this}}</button>
+    {{/each}}
+  </div>
+</template>

@@ -1,0 +1,27 @@
+<template name="bugView">
+  {{#if logged_in}}
+  <a href="/bugs/{{_id.toHexString}}/edit">Edit</a>
+  {{/if}}
+  <h3>{{title}}</h3>
+  <div>
+    <label>Description</label>
+    {{description}}
+  </div>
+  <div>
+    <label>Story</label>
+    {{story_number}}
+  </div>
+  <div>
+    <label>Tags</label>
+    {{#each tags}}
+    <button class="tag" onclick="window.location = '/search/{{this}}'">{{this}}</button>
+    {{/each}}
+  </div>
+  <div>
+    <button class="btn btn-default" id="toggle-solution">Show Solution</button>
+    <div id="solution" style="display: none;">
+      {{#markdown}}{{solution}}
+      {{/markdown}}
+    </div>
+  </div>
+</template>

@@ -1,0 +1,11 @@
+<template name="search">
+  <header>
+  <h1>Bugs matching: {{search_term}}</h1>
+  </header>
+
+  <ul>
+    {{#each bugs}}
+      {{> bugItem}}
+    {{/each}}
+  </ul>
+</template>

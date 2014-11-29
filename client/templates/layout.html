@@ -1,0 +1,17 @@
+<template name="layout">
+  <div class="container">
+    <header class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Training Bugs</a>
+        {{#if logged_in}}
+        <a href="/bugs/new">New Bug</a>
+        {{/if}}
+        <input class="search-box" id="search-box" type="text" placeholder="Search..." value="{{search_term}}"/>
+        {{> loginButtons align="right"}}
+      </div>
+    </header>
+    <div id="main" class="row-fluid">
+      {{> yield}}
+    </div>
+  </div>
+</template>
