@@ -3,4 +3,5 @@ Template.layout.events
     if event.keyCode == $.ui.keyCode.ENTER
       window.location = "/search/#{$(event.target).val()}"
 
-Template.layout.logged_in = -> Meteor.user()
+Template.layout.helpers
+  logged_in: -> Meteor.user()

@@ -1,0 +1,124 @@
+/* CSS declarations go here */
+$primary-color: #526c86;
+
+.tag{
+  background-color: #e0eaf1;
+  border-bottom: 1px solid #b3cee1;
+  border-right: 1px solid #b3cee1;
+  padding: 3px 4px 3px 4px;
+  margin: 2px 2px 2px 0;
+  text-decoration: none;
+  font-size: 90%;
+  line-height: 1.4;
+  white-space: nowrap;
+  display: inline-block;
+  outline: none;
+}
+
+.navbar-we{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  background: $primary-color;
+  border-radius: 0px;
+  margin-bottom: 0;
+  border: 0;
+
+  li > a:hover, li > a:focus{
+    background-color: darken($primary-color, 8%);
+  }
+
+  div > ul > li > a, li > a:focus{
+    color: #FFF;
+    font-weight: normal;
+    line-height: 20px;
+    padding: 1.8em 15px;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.25);
+  }
+}
+
+.navbar-title{
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: auto;
+  font-size: 24px;
+  text-align: center;
+  margin-left: 4px;
+  border: 0px;
+  padding: 0px;
+  left: 0px;
+  right: 0px;
+  background: transparent;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+  display: block;
+  &:hover{
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.new-bug-link{
+  display: block;
+  float: right;
+  vertical-align: middle;
+  padding-top: 8px;
+  color: white;
+  &:hover{
+    text-decoration: none;
+    color: gray;
+  }
+}
+
+.login-widget{
+  margin: 4px;
+  display: block;
+  float: left;
+  vertical-align: middle;
+  color: white;
+}
+
+.dropdown-toggle{
+  color: white;
+  &:hover{
+    text-decoration: none;
+    color: gray;
+  }
+}
+
+.search-box{
+  font-size: 14px;
+  padding: 4px 12px;
+  margin: 4px;
+  line-height: 1.3;
+  border-radius: 20px;
+  border: 0px;
+  width: 100px;
+  background: white;
+  display: block;
+  float: right;
+  vertical-align: middle;
+  &:focus{
+    outline: 0;
+  }
+}
+
+li{
+  list-style-type: none;
+}
+
+.bug-item{
+  background-color: lighten($primary-color, 40%);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 0px 5px 0px;
+}
+
+.new-bug{
+  padding: 20px;
+}
+
+.edit-bug{
+  padding: 20px;
+}

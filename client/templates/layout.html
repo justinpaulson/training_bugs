@@ -1,13 +1,13 @@
 <template name="layout">
   <div class="container">
-    <header class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Training Bugs</a>
-        {{#if logged_in}}
-        <a href="/bugs/new">New Bug</a>
-        {{/if}}
-        <input class="search-box" id="search-box" type="text" placeholder="Search..." value="{{search_term}}"/>
-        {{> loginButtons align="right"}}
+    <header class="navbar navbar-we" role="navigation">
+      <a class="navbar-title" href="/">Training Bugs</a>
+      <input class="search-box" id="search-box" type="text" placeholder="Search..." value="{{search_term}}"/>
+      {{#if logged_in}}
+      <a class="new-bug-link" href="/bugs/new">New Bug</a>
+      {{/if}}
+      <div class="login-widget">
+        {{> loginButtons alight="right"}}
       </div>
     </header>
     <div id="main" class="row-fluid">

@@ -1,11 +1,8 @@
 <template name="bugList">
 <header>
-  <h1>Training Bugs</h1>
+  <h3>All Bugs</h3>
 </header>
-
-<ul>
-  {{#each bugs}}
-    {{> bugItem}}
-  {{/each}}
-</ul>
+{{#each bugs}}
+  {{> bugItem}}
+{{/each}}
 </template>

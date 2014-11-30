@@ -6,7 +6,9 @@ Template.newBug.events
       _id:  new Meteor.Collection.ObjectID(),
       title: $("[name='title']").val(),
       story_number: $("[name='story_number']").val(),
+      branch: $("[name='branch']").val(),
       description: $("[name='description']").val(),
+      difficulty: $("[name='difficulty']").val(),
       tags: tags,
       solution: $("[name='solution']").val(),
       createdAt: new Date()

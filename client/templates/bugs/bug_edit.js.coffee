@@ -6,7 +6,9 @@ Template.bugEdit.events
       $set:
         title: $("[name='title']").val(),
         story_number: $("[name='story_number']").val(),
+        branch: $("[name='branch']").val(),
         description: $("[name='description']").val(),
+        difficulty: $("[name='difficulty']").val(),
         tags: tags,
         solution: $("[name='solution']").val()
 
@@ -50,3 +52,7 @@ Template.bugEdit.rendered = () ->
         terms.push ""
         this.value = terms.join ", "
         false
+
+Template.bugEdit.helpers
+  selected: (option, value) ->
+    if option == value then 'selected' else ''

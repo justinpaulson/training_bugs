@@ -1,10 +1,9 @@
 <template name="bugView">
   {{#if logged_in}}
-  <a href="/bugs/{{_id.toHexString}}/edit">Edit</a>
+  <a href="/bugs/{{_id.toHexString}}/edit" style="float:right;">Edit</a>
   {{/if}}
   <h3>{{title}}</h3>
   <div>
-    <label>Description</label>
     {{description}}
   </div>
   <div>
@@ -12,7 +11,14 @@
     {{story_number}}
   </div>
   <div>
-    <label>Tags</label>
+    <label>Branch</label>
+    <a href="{{branch}}">{{branch}}</a>
+  </div>
+  <div>
+    <label>Difficulty</label>
+    {{difficulty}}
+  </div>
+  <div>
     {{#each tags}}
     <button class="tag" onclick="window.location = '/search/{{this}}'">{{this}}</button>
     {{/each}}

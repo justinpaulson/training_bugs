@@ -8,4 +8,5 @@ Template.bugView.events
       $(e.target).html "Hide Solution"
       $('#solution').show()
 
-Template.bugView.logged_in = -> Meteor.user()
+Template.bugView.helpers
+  logged_in: -> Meteor.user()
