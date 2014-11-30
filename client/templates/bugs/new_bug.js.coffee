@@ -22,6 +22,13 @@ Template.newBug.events
     if event.keyCode == $.ui.keyCode.TAB
       event.preventDefault()
 
+  "click #import-story": (e) ->
+    e.preventDefault()
+    Meteor.call "getPivotalStory", $("[name='story_number']").val(), (error, results) ->
+      content = JSON.parse(results.content)
+      $("[name='title']").val content.name
+      $("[name='description']").val content.description
+
 Template.newBug.rendered = () ->
   availableTags = [
       "Client",
