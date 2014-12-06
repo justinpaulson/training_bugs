@@ -1,8 +1,8 @@
 <template name="bugItem">
   <div class="bug-item">
-    <h4><a href="/bugs/{{_id.toHexString}}">{{title}}</a></h4>
-    <div>
-      {{description}}
+    <h4><a class="bug-title" href="/bugs/{{_id.toHexString}}">{{title}}</a></h4>
+    <div class="bug-description">
+      {{#markdown}}{{description}}{{/markdown}}
     </div>
     <div>
       {{#each tags}}

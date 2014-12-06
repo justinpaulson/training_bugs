@@ -3,12 +3,12 @@
     <header class="navbar navbar-we" role="navigation">
       <a class="navbar-title" href="/">Training Bugs</a>
       <input class="search-box" id="search-box" type="text" placeholder="Search..." value="{{search_term}}"/>
-      {{#if logged_in}}
-      <a class="new-bug-link" href="/bugs/new">New Bug</a>
-      {{/if}}
       <div class="login-widget">
         {{> loginButtons alight="right"}}
       </div>
+      {{#if logged_in}}
+      <a class="new-bug-link" href="/bugs/new">New Bug</a>
+      {{/if}}
     </header>
     <div id="main" class="row-fluid">
       {{> yield}}
