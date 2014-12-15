@@ -22,36 +22,27 @@ Template.bugEdit.events
       event.preventDefault()
 
 Template.bugEdit.rendered = () ->
-  availableTags = [
-      "Client",
-      "Server",
-      "Backbone",
-      "Underscore",
-      "Moment",
-      "Ruby",
-      "Rails",
-      "Javascript",
-      "Coffeescript"
-    ]
+  
+  Meteor.call "getTags", (error, results) => 
+    availableTags = results
+    $("#tags")
+      .autocomplete
+        minLength: 0,
+        source: (request, response) -> response( $.ui.autocomplete.filter(availableTags, extractLast(request.term))),
+        focus: -> false,
+        select: (event, ui) ->
+          terms = split this.value
+          terms.pop()
+          terms.push ui.item.value
+          terms.push ""
+          this.value = terms.join ", "
+          false
 
   split = (val) ->
     val.split( /,\s*/ )
 
   extractLast = (term) ->
     split(term).pop()
-
-  $("#tags")
-    .autocomplete
-      minLength: 0,
-      source: (request, response) -> response( $.ui.autocomplete.filter(availableTags, extractLast(request.term))),
-      focus: -> false,
-      select: (event, ui) ->
-        terms = split this.value
-        terms.pop()
-        terms.push ui.item.value
-        terms.push ""
-        this.value = terms.join ", "
-        false
 
 Template.bugEdit.helpers
   selected: (option, value) ->

@@ -30,17 +30,21 @@ Template.newBug.events
       $("[name='description']").val content.description
 
 Template.newBug.rendered = () ->
-  availableTags = [
-      "Client",
-      "Server",
-      "Backbone",
-      "Underscore",
-      "Moment",
-      "Ruby",
-      "Rails",
-      "Javascript",
-      "Coffeescript"
-    ]
+
+  Meteor.call "getTags", (error, results) => 
+    availableTags = results
+    $("#tags")
+      .autocomplete
+        minLength: 0,
+        source: (request, response) -> response( $.ui.autocomplete.filter(availableTags, extractLast(request.term))),
+        focus: -> false,
+        select: (event, ui) ->
+          terms = split this.value
+          terms.pop()
+          terms.push ui.item.value
+          terms.push ""
+          this.value = terms.join ", "
+          false
 
   split = (val) ->
     val.split( /,\s*/ )
@@ -48,15 +52,3 @@ Template.newBug.rendered = () ->
   extractLast = (term) ->
     split(term).pop()
 
-  $("#tags")
-    .autocomplete
-      minLength: 0,
-      source: (request, response) -> response( $.ui.autocomplete.filter(availableTags, extractLast(request.term))),
-      focus: -> false,
-      select: (event, ui) ->
-        terms = split this.value
-        terms.pop()
-        terms.push ui.item.value
-        terms.push ""
-        this.value = terms.join ", "
-        false

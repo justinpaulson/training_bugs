@@ -16,4 +16,13 @@ if (Meteor.isServer) {
       return false;
     }
   }});
+
+  Meteor.methods({getTags: function () {
+    var bugsCursor = Bugs.find({});
+    var tags = [];
+    bugsCursor.forEach( function (bug){
+      tags.push(bug.tags);
+    });
+    return _.compact(_.uniq(_.flatten(tags)));
+  }});
 }
